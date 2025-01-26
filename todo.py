@@ -11,3 +11,8 @@ When first ran, will prompt for email, username and password.
 And the title of the blog. 
 
 '''
+
+'''
+Environment friendly development, with as little overhead as possible,
+serving very small packages and with a very small size. 
+'''

@@ -1,8 +1,13 @@
+# Flask dependencies
 from flask import render_template, request, redirect, url_for
-import sqlite3
+
+# Universal database connector
+from database.db_ops import get_db_connection
+
 from app import app
-from app.utils import slugify
-from app.db_ops import check_setup, setup_blog, get_latest_posts
+from func.misc import slugify
+from database.db_ops import get_latest_posts
+from func.setup import check_setup, setup_blog, get_secret_key
 
 # Main page
 @app.route('/')
@@ -12,7 +17,7 @@ def index():
     posts = get_latest_posts()
     return render_template('index.html', posts=posts)
 
-# Route for setting up the blog on first run
+
 @app.route('/setup', methods=['GET', 'POST'])
 def setup():
     if check_setup() == 1:
@@ -26,11 +31,10 @@ def setup():
         
         setup_blog(blog_title, username, email, password)
 
-        # Double-check if the setup flag is updated
         if check_setup() == 1:
             return redirect(url_for('index'))
         else:
-            return "Setup failed. Please try again.", 500
+            return "Setup failed! Unsure why. Please contact me at gocandan@gmail.com and we'll work it out :)", 500
     
     return render_template('setup.html')
 
