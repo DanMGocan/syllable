@@ -3,10 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="/static/js/htmx.min.js"></script>
-    <link rel="stylesheet" href="/static/css/main.css">
+    
+    <!-- HTMX for Ajax-style script -->
+    <script rel="script" src="{{ url_for('static', filename='js/htmx.min.js') }}"></script>
 
+    <!-- Global style -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+    <!-- Custom, page only styles or scripts -->
+    {% block head %}{% endblock %}
+
+    <!-- Custom titles -->
     <title>{% block title %}Poetry Blog{% endblock %}</title>
+
 </head>
 <body>
     <div>

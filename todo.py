@@ -3,6 +3,7 @@ How to do the WYSIWYG?
 What about the Share function on posts? 
 Edit for Title / Content 
 Generate url dinamically from title
+Allow owner option to edit social media links
 '''
 
 '''

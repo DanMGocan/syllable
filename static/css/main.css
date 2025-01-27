@@ -1,0 +1,18 @@
+@font-face {
+    font-family: "Quicksand";
+    src: url("../fonts/Quicksand-VariableFont_wght.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Quicksandbold";
+    src: url("../fonts/Quicksand-VariableFont_wght.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* Apply the font globally */
+body {
+    font-family: "Quicksand", sans-serif;
+}

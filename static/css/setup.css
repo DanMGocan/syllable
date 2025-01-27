@@ -1,0 +1,114 @@
+/* Apply basic page styling */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #f8f9fa;
+}
+
+/* Centering the container */
+.setup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+}
+
+#setup-title {
+    color: #555;
+    font-weight: bolder;
+    font-size: 2rem;
+    margin: 0 0 10px 0;
+    padding: 0;
+}
+
+/* Centering the form card */
+.setup-card {
+    background: white;
+    padding: 30px;
+    border: 2px solid #333;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px; /* Ensures form doesn't stretch too much */
+    text-align: center;
+}
+
+/* Center the title */
+.setup-card h2 {
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+/* Fix form width & alignment */
+.setup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Spacing between inputs */
+    width: 100%;
+}
+
+/* Make sure input fields stretch to full width */
+.input-group {
+    width: 100%;
+    text-align: left; /* Labels should remain left-aligned */
+}
+
+/* Labels should align properly */
+.input-group label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+/* Inputs should stretch properly */
+.input-group input {
+    width: 99%; /* Ensures full width without breaking layout */
+    padding: 12px 0 12px 0;
+    margin-top: 3px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+/* Focus effect */
+.input-group input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.input-group input::placeholder {
+    color: #888; /* 🔹 Changes placeholder color */
+    font-style: italic; /* 🔹 Makes placeholder text italic */
+    font-size: 0.9rem; /* 🔹 Slightly smaller placeholder text */
+    opacity: 0.8; /* 🔹 Makes it a bit transparent */
+    padding: 12px;
+}
+
+
+/* Submit button */
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background: #007bff;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+/* Button hover effect */
+.submit-btn:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+}

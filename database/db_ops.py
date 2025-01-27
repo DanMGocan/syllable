@@ -1,7 +1,7 @@
 import sqlite3
 import bcrypt
 
-DB_NAME = "blog.db"
+DB_NAME = "database/blog.db"
 
 def get_db_connection():
     """Universal database connector, to be used in all the modules"""

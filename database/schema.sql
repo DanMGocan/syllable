@@ -8,11 +8,12 @@ DROP TABLE IF EXISTS statistics;
 -- Website-wide settings
 CREATE TABLE IF NOT EXISTS settings (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    blog_name TEXT NOT NULL,
+    blog_title TEXT NOT NULL,
     share_fb TEXT,       -- Share link for Facebook
     share_whatsapp TEXT, -- Share link for WhatsApp
     share_discord TEXT,  -- Share link for Discord
-    is_setup INTEGER DEFAULT 0 -- 0 = Not setup, 1 = Setup complete
+    setup_flag INTEGER DEFAULT 0, -- 0 = Not setup, 1 = Setup complete
+    secret_key TEXT NOT NULL --
 );
 
 -- Users table (for authentication)

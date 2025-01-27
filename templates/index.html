@@ -1,22 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ blog_title }}</title>
-</head>
-<body>
+{% extends "base.html" %}
 
+{% block title %}{{ blog_title }}{% endblock %}
+
+{% block content %}
+<header>
     <h1>{{ blog_title }}</h1>
+    
+    <div id="auth-container">
+        {% if session.email %}
+            <!-- If user is logged in -->
+            <p>Welcome, <strong>{{ session.username }}</strong>! Logged in with <strong>{{ session.email }}</strong>.</p>
+            <button hx-get="{{ url_for('routes.logout') }}" hx-trigger="click" hx-swap="outerHTML" class="logout-btn">
+                Logout
+            </button>
+        {% else %}
+            <!-- If user is NOT logged in -->
+            <button hx-get="{{ url_for('routes.load_login_form') }}" 
+                    hx-target="#auth-container" 
+                    hx-swap="outerHTML"
+                    class="login-btn">
+                Login
+            </button>
+        {% endif %}
+    </div>
+</header>
 
-    <div id="posts">
-        {% for post in posts %}
-            <div class="post">
-                <h2>{{ post.title }}</h2>
-                <p>{{ post.content }}</p>
+<main id="posts">
+    {% for post in posts %}
+        <article class="post">
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.content }}</p>
 
+            <div class="post-actions">
                 <!-- Like button with HTMX -->
-                <button hx-post="/like/{{ post.id }}" 
+                <button class="like-btn" 
+                        hx-post="/like/{{ post.id }}" 
                         hx-trigger="click" 
                         hx-target="#likes-{{ post.id }}"
                         hx-swap="innerHTML">
@@ -24,8 +42,7 @@
                 </button>
                 <span id="likes-{{ post.id }}">{{ post.likes }}</span> likes
             </div>
-        {% endfor %}
-    </div>
-
-</body>
-</html>
+        </article>
+    {% endfor %}
+</main>
+{% endblock %}
